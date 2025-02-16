@@ -10,6 +10,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Search, Heart, ShoppingBag } from "lucide-react";
+import UserMenu from "@/components/auth/UserMenu";
 
 interface NavbarProps {
   onSearch?: (query: string) => void;
@@ -63,6 +64,8 @@ const Navbar = ({
         <Button variant="ghost" size="icon">
           <ShoppingBag className="h-5 w-5" />
         </Button>
+
+        <UserMenu />
       </div>
     </nav>
   );

@@ -11,6 +11,8 @@ export type FilterOptions = {
   pageSize?: number;
 };
 
+export type FilterCategory = "category" | "brand" | "note" | "gender";
+
 export async function getPerfumes(filters: FilterOptions = {}) {
   const { page = 1, pageSize = 12 } = filters;
   const start = (page - 1) * pageSize;

@@ -41,6 +41,7 @@ const PerfumeGrid = ({
           : perfumes.map((perfume) => (
               <div key={perfume.id} className="flex justify-center">
                 <PerfumeCard
+                  id={perfume.id}
                   image={perfume.image_url}
                   name={perfume.name}
                   brand={perfume.brand?.name}

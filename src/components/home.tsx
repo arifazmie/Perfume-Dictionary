@@ -28,11 +28,33 @@ const Home = () => {
     id: string,
     checked: boolean,
   ) => {
-    const currentFilters = filters[category] || [];
-    const newFilters = checked
-      ? [...currentFilters, id]
-      : currentFilters.filter((f) => f !== id);
-    updateFilters({ [category]: newFilters });
+    let filterKey: string;
+    switch (category) {
+      case "category":
+        filterKey = "categories";
+        break;
+      case "brand":
+        filterKey = "brands";
+        break;
+      case "note":
+        filterKey = "notes";
+        break;
+      case "gender":
+        filterKey = "gender";
+        break;
+      default:
+        filterKey = category;
+    }
+
+    if (filterKey === "gender") {
+      updateFilters({ [filterKey]: checked ? id : undefined });
+    } else {
+      const currentFilters = filters[filterKey] || [];
+      const newFilters = checked
+        ? [...currentFilters, id]
+        : currentFilters.filter((f) => f !== id);
+      updateFilters({ [filterKey]: newFilters });
+    }
   };
 
   if (error) {
